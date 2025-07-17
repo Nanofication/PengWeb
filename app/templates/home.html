@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}PengWeb{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/products">Products</a> |
+        <a href="/contact">Contact Us</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
