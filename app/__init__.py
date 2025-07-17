@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 import os
 
-# ✅ Load .env at startup
+# Load .env at startup
 load_dotenv()
 
 db = SQLAlchemy()

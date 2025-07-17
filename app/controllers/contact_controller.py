@@ -3,7 +3,7 @@ from flask import Blueprint, render_template, request, flash, redirect
 contact_bp = Blueprint('contact', __name__)
 
 @contact_bp.route('/contact', methods=['GET', 'POST'])
-def contact():
+def display_contact_page():
     if request.method == 'POST':
         # Save or process message here
         flash("Message sent successfully!")
