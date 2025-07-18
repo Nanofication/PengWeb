@@ -30,6 +30,8 @@ def create_app():
     from app.controllers.product_controller import product_bp
     from app.controllers.home_controller import home_bp
     from app.controllers.contact_controller import contact_bp
+    from app.controllers.about_controller import about_bp
+    app.register_blueprint(about_bp)
     app.register_blueprint(product_bp)
     app.register_blueprint(home_bp)
     app.register_blueprint(contact_bp)
