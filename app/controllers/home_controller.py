@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template
+from app.models.product import Product
 
 home_bp = Blueprint('home', __name__)
 
 @home_bp.route('/')
 def render_home():
-    from app.models.product import Product
     featured_items = Product.query.limit(3).all()  # top 3 products
     return render_template('index.html', featured_items=featured_items)
