@@ -2,18 +2,16 @@
 {% block title %}Home - PengWeb{% endblock %}
 
 {% block content %}
+<!-- Carousel Section -->
 <div class="container my-5">
-
-  <!-- Carousel Section -->
-<div id="carouselExample" class="carousel slide mb-5" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    {% for image in carousel_images %}
-      <div class="carousel-item {% if loop.first %}active{% endif %}">
-        <img src="{{ url_for('static', filename=image) }}" class="d-block w-100 hero-img" height="300" alt="Slide {{ loop.index }}">
-      </div>
-    {% endfor %}
-  </div>
-
+  <div id="carouselExample" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for image in carousel_images %}
+        <div class="carousel-item {% if loop.first %}active{% endif %}">
+          <img src="{{ url_for('static', filename=image) }}" class="d-block w-100 hero-img" height="300" alt="Slide {{ loop.index }}">
+        </div>
+      {% endfor %}
+    </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
       <span class="carousel-control-prev-icon"></span>
     </button>
@@ -21,10 +19,16 @@
       <span class="carousel-control-next-icon"></span>
     </button>
   </div>
+</div>
 
-  <!-- Who are you shopping for? -->
-  <div class="section-title bg-warning py-2">Who are you shopping for?</div>
-  <div class="row text-center mb-5">
+<!-- "Who are you shopping for?" Title -->
+<div class="bg-light py-2 w-100">
+  <h2 class="section-title text-center m-0">Who are you shopping for?</h2>
+</div>
+
+<!-- Dog/Cat Buttons -->
+<div class="container my-5">
+  <div class="row text-center">
     <div class="col-md-6">
       <a href="/products?animal=dog">
         <img src="{{ url_for('static', filename='images/dog.jpg') }}" class="rounded-img mb-2" alt="Dog">
@@ -38,9 +42,15 @@
       </a>
     </div>
   </div>
+</div>
 
-  <!-- Featured Items -->
-  <div class="section-title text-uppercase">Quick Shipping and Hot Items</div>
+<!-- Quick Shipping -->
+<div class="bg-brown py-2 w-100">
+  <h2 class="section-title text-center text-white m-0 text-uppercase">Quick Shipping at Hot Items</h2>
+</div>
+
+<!-- Featured Items -->
+<div class="container my-5">
   <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for item in featured_items %}
     <div class="col">
@@ -54,6 +64,37 @@
     </div>
     {% endfor %}
   </div>
-
 </div>
+
+<!-- Our Story Section -->
+<div class="container my-5">
+  <h2 class="section-title text-uppercase bg-light py-2">Our Story</h2>
+  <div class="row align-items-center py-4">
+    <!-- Left: Picture -->
+    <div class="col-md-6 text-center">
+      <img src="{{ url_for('static', filename='images/dog3.jpg') }}" alt="Our Story" class="img-fluid rounded shadow" style="max-width: 80%;">
+    </div>
+
+    <!-- Right: Text -->
+    <div class="col-md-6">
+      <div class="card shadow-sm p-4">
+        <h2 class="section-title text-center">Meet Our Pup! 🐾</h2>
+        <p>
+          Say hello to our adorable German Shepherd, born on <strong>February 15, 2022</strong>! Though she’s a German Shepherd, she’s petite for her breed—just <strong>68 pounds of pure joy</strong>.
+        </p>
+        <p>
+          Don’t let her size fool you—she’s bursting with energy, full of curiosity, and always ready for playtime. 🎾
+        </p>
+        <p>
+          Her favorite thing in the world? <strong>Chasing her ball</strong>! Whether it's in the backyard or at the park, she’ll happily sprint after it again and again.
+        </p>
+        <p>
+          With a wagging tail and a heart of gold, she brings smiles wherever she goes. 🐶💛
+        </p>
+    </div>
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}

@@ -7,10 +7,11 @@ home_bp = Blueprint('home', __name__)
 def render_home():
     featured_items = Product.query.limit(3).all()  # top 3 products
 
+    #Add nes pics for the slide in the home page
     carousel_images = [
+        'images/dog2.jpg',
         'images/slide1.jpg',
         'images/testimg2.jpg',
-        'images/slide3.jpg',
     ]
 
     return render_template('index.html',
