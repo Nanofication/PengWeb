@@ -5,7 +5,7 @@ home_bp = Blueprint('home', __name__)
 
 @home_bp.route('/')
 def render_home():
-    featured_items = Product.query.limit(3).all()  # top 3 products
+    featured_items = Product.query.order_by(Product.amount.asc()).limit(8).all()
 
     #Add nes pics for the slide in the home page
     carousel_images = [

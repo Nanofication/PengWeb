@@ -7,39 +7,105 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- Global layout styles (header, footer, font, etc.) -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+
+  <!-- Homepage-specific styles -->
+  {% if request.path == '/' %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+  {% endif %}
+
 
 </head>
 <body>
 
   <!-- Company header -->
-  <div class="text-center p-3 bg-light">
+  <div class="text-center p-3">
     <h1>Huhu Yang's personal Web (For now)</h1>
     <p>The best GSD humans have found in this world. Brave, lovely, and love all humans (with balls in their hands).</p>
   </div>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-brown bg-warning-subtle">
-    <div class="container">
-      <a class="navbar-brand" href="/">Home</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-        </ul>
-      </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-brown bg-warning-subtle">
+  <div class="container">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+
+        <!-- Products Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button">
+            Products
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+            <li><a class="dropdown-item" href="/products">See all categories</a></li>
+            <li><a class="dropdown-item" href="#">Pet Clothes</a></li>
+            <li><a class="dropdown-item" href="#">Pet Toys</a></li>
+            <li><a class="dropdown-item" href="#">Dog Walking Items</a></li>
+            <li><a class="dropdown-item" href="#">Pet Cleaning Items</a></li>
+          </ul>
+        </li>
+
+        <!-- About Us Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button">
+            About Us
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+            <li><a class="dropdown-item" href="/about">Company Overview</a></li>
+            <li><a class="dropdown-item" href="/team">Rating& Reviews</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
+
 
   <!-- Page-specific content -->
   {% block content %}{% endblock %}
 
   {% include 'footer.html' %}
   <a href="/contact" class="contact-us-btn">Contact Us</a>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const wrapper = document.getElementById("hot-items-wrapper");
+      const cardWidth = 250 + 16; // 卡片宽 + margin
+      const containerWidth = wrapper.parentElement.offsetWidth;
+      const visibleCount = Math.floor(containerWidth / cardWidth);
+      const totalCards = wrapper.children.length;
+
+      let currentIndex = 0;
+      const maxIndex = Math.max(0, totalCards - visibleCount);
+
+      window.scrollHotItems = (direction) => {
+        currentIndex += direction;
+        currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
+
+        const totalVisibleWidth = totalCards * cardWidth;
+        const maxOffset = totalVisibleWidth - containerWidth;
+
+        const targetOffset = Math.min(currentIndex * cardWidth, maxOffset);
+        wrapper.style.marginLeft = `-${targetOffset}px`;
+      };
+    });
+  </script>
+
+
+
+
+
+
+
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

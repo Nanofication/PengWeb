@@ -1,0 +1,110 @@
+/* Body & Font */
+body {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 1.2rem;
+  color: #333;
+  background-color: #fff;
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+/* Headings */
+.section-title,
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Patrick Hand', cursive;
+  color: #89CFF0;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Navbar */
+.navbar .nav-link,
+.navbar .navbar-brand {
+  color: white !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .navbar-brand:hover {
+  color: #f8f9fa !important;
+}
+
+.bg-brown {
+  background-color: #89CFF0 !important;
+}
+
+/* Enable dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0; /* remove any default offset */
+}
+
+/* Optional: style the dropdown for a more modern look */
+.dropdown-menu {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+/* Footer */
+footer .col-md-3 ul {
+  line-height: 1.8;
+  padding-left: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+footer .col-md-3 a {
+  font-size: 0.8rem;
+  letter-spacing: 0.4px;
+  color: black;
+  text-decoration: none;
+}
+
+footer .col-md-3 a:hover {
+  color: #555;
+  text-decoration: underline;
+}
+
+.footer-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+/* Global links */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Contact button */
+.contact-us-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #A5693F;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  transition: background-color 0.3s;
+}
+
+.contact-us-btn:hover {
+  background-color: #854C2A;
+}

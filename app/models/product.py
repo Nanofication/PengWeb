@@ -8,6 +8,7 @@ class Product(db.Model):
     #min_order_qty = db.Column(db.Integer, nullable=False)
     #details = db.Column(db.String(200))
     category = db.Column(db.String(20))
+    amount = db.Column(db.Integer, default=0)
 
     def __repr__(self):
         return f"<Product {self.name}>"

@@ -26,19 +26,25 @@
   <h2 class="section-title text-center m-0">Who are you shopping for?</h2>
 </div>
 
-<!-- Dog/Cat Buttons -->
+<!-- Dog/Cat/Turtle Buttons -->
 <div class="container my-5">
   <div class="row text-center">
-    <div class="col-md-6">
+    <div class="col-sm-6 col-md-4">
       <a href="/products?animal=dog">
         <img src="{{ url_for('static', filename='images/dog.jpg') }}" class="rounded-img mb-2" alt="Dog">
         <h5>Dog</h5>
       </a>
     </div>
-    <div class="col-md-6">
+    <div class="col-sm-6 col-md-4">
       <a href="/products?animal=cat">
         <img src="{{ url_for('static', filename='images/cat.jpg') }}" class="rounded-img mb-2" alt="Cat">
         <h5>Cat</h5>
+      </a>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <a href="/products?animal=turtle">
+        <img src="{{ url_for('static', filename='images/turtle1.jpg') }}" class="rounded-img mb-2" alt="Cat">
+        <h5>Turtle</h5>
       </a>
     </div>
   </div>
@@ -50,25 +56,38 @@
 </div>
 
 <!-- Featured Items -->
-<div class="container my-5">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    {% for item in featured_items %}
-    <div class="col">
-      <div class="card h-100">
-        <img src="{{ url_for('static', filename=item.image_url) }}" class="card-img-top" alt="{{ item.name }}">
-        <div class="card-body">
-          <h5 class="card-title">{{ item.name }}</h5>
-          <p class="card-text">{{ item.details }}</p>
+<div class="container mt-5 p-4 rounded bg-baby-blue position-relative">
+  <div class="overflow-hidden">
+    <div id="hot-items-wrapper" class="d-flex transition-wrapper">
+      {% for product in featured_items %}
+      <div class="product-card mx-2">
+        <div class="card h-100">
+          <img src="{{ url_for('static', filename=product.image_url) }}" class="card-img-top" alt="{{ product.name }}">
+          <div class="card-body">
+            <h5 class="card-title text-uppercase">{{ product.name }}</h5>
+          </div>
         </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
+
+  <!-- Left/Right Button -->
+  <button class="scroll-arrow left" onclick="scrollHotItems(-1)">
+    <i class="bi bi-chevron-left"></i>
+  </button>
+  <button class="scroll-arrow right" onclick="scrollHotItems(1)">
+    <i class="bi bi-chevron-right"></i>
+  </button>
+</div>
+
+<!-- Our Story Title Section -->
+<div class="bg-light py-2 w-100 my-5">
+  <h2 class="section-title text-center m-0">Our Story</h2>
 </div>
 
 <!-- Our Story Section -->
 <div class="container my-5">
-  <h2 class="section-title text-uppercase bg-light py-2">Our Story</h2>
   <div class="row align-items-center py-4">
     <!-- Left: Picture -->
     <div class="col-md-6 text-center">
