@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0; /* remove any default offset */
 }
 
-/* Optional: style the dropdown for a more modern look */
+/* Style the dropdown for a more modern look */
 .dropdown-menu {
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -76,6 +76,7 @@ footer .col-md-3 a:hover {
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid #ccc;
+  margin-top: 2rem;
 }
 
 /* Global links */
