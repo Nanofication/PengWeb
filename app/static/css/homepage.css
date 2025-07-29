@@ -1,6 +1,6 @@
 /* Carousel */
 .hero-img {
-  height: 600px;
+  height: 400px;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -136,4 +136,18 @@ p {
   width: 250px;
   scroll-snap-align: start;
 }
+
+/* Custom Process Section */
+.section-heading {
+  color: #89CFF0;
+  text-transform: none;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.custom-process-block ol {
+  padding-left: 1.2rem;
+  line-height: 1.8;
+}
+
 
