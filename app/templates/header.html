@@ -15,7 +15,14 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
   {% endif %}
 
+  <!-- Products page-specific styles -->
+  {% if request.path == '/products' %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/products.css') }}">
+  {% endif %}
 
+  {% if request.path == '/contact' %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+  {% endif %}
 </head>
 <body>
 
@@ -39,11 +46,11 @@
 
         <!-- Products Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button">
+          <a class="nav-link dropdown-toggle" href="/products" id="productsDropdown" role="button">
             Products
           </a>
           <ul class="dropdown-menu" aria-labelledby="productsDropdown">
-            <li><a class="dropdown-item" href="/products">See all categories</a></li>
+            <li><a class="dropdown-item" href="/products">All Products</a></li>
             <li><a class="dropdown-item" href="#">Pet Clothes</a></li>
             <li><a class="dropdown-item" href="#">Pet Toys</a></li>
             <li><a class="dropdown-item" href="#">Dog Walking Items</a></li>
@@ -53,7 +60,7 @@
 
         <!-- About Us Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button">
+          <a class="nav-link dropdown-toggle" href="/about" id="aboutDropdown" role="button">
             About Us
           </a>
           <ul class="dropdown-menu" aria-labelledby="aboutDropdown">

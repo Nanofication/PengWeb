@@ -1,0 +1,25 @@
+/* Contact Box Styling */
+.contact-box {
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  text-align: left;
+  color: #000;
+  text-transform: none; /* Prevent uppercase transformation */
+}
+
+.contact-box h4 {
+  font-weight: 500;
+  color: #000;
+  text-transform: none; /* Ensure headings stay normal case */
+}
+
+.contact-box i {
+  color: #000;
+}
+
+/* Optional: remove uppercase from any accidental links too */
+.contact-box a {
+  color: #000;
+  text-decoration: none;
+  text-transform: none;
+}

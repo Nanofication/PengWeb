@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Contact Us</title>
-</head>
-<body>
+{% extends 'header.html' %}
+{% block title %}Contact Us - PengWeb{% endblock %}
 
-</body>
-</html>
+{% block content %}
+<div class="container my-2">
+
+  <!-- Contact Info -->
+  <div class="p-4 mb-3 rounded contact-box">
+    <h4 class="mb-3">Company Contact Information</h4>
+    <div class="fs-3 mb-2"><i class="bi bi-telephone"></i></div>
+    <div class="fs-3 my-5"><i class="bi bi-envelope"></i></div>
+  </div>
+
+  <!-- Location -->
+  <div class="p-4 mb-4 rounded contact-box">
+    <h4 class="mb-3">Company Location</h4>
+    <div class="fs-3 my-5"><i class="bi bi-geo-alt"></i></div>
+  </div>
+
+</div>
+{% endblock %}

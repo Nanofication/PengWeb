@@ -2,21 +2,77 @@
 {% block title %}Products - PengWeb{% endblock %}
 
 {% block content %}
-<h2>Product List</h2>
 
-{% if products %}
-    <div class="product-grid">
-        {% for product in products %}
-            <div class="product-card">
-                <img src="{{ url_for('static', filename=product.image_url) }}" alt="{{ product.name }}" class="img-fluid">
-<br>
-                <h3>{{ product.name }}</h3>
-                <p>{{ product.details }}</p>
-            </div>
-        {% endfor %}
+<!-- Products Page Banner -->
+<div class="product-banner mb-4">
+  <img src="{{ url_for('static', filename='images/products-banner2.jpg') }}" alt="Products Banner" class="promo-banner">
+</div>
+
+<div class="product-toolbar">
+  <div class="search-sort-container">
+    <!-- Search bar -->
+    <div class="search-box">
+      <input type="text" class="form-control" placeholder="Search">
+      <button class="search-btn"><i class="bi bi-search"></i></button>
     </div>
+
+    <!-- Sort buttons -->
+    <div class="sort-buttons">
+      <button class="sort-btn active">✓ New</button>
+      <button class="sort-btn">Price ascending</button>
+      <button class="sort-btn">Price descending</button>
+      <button class="sort-btn">Rating</button>
+    </div>
+  </div>
+</div>
+
+
+{% if products.items %}
+  <div class="product-grid">
+    {% for product in products.items %}
+      <div class="product-card">
+        <img src="{{ url_for('static', filename=product.image_url) }}" alt="{{ product.name }}" class="img-fluid">
+        <h6 class="product-name">{{ product.name }}</h6>
+        <p>{{ product.details }}</p>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination -->
+  <nav class="pagination-nav mt-4">
+    <ul class="pagination justify-content-center">
+      {% if products.has_prev %}
+        <li class="page-item">
+          <a class="page-link" href="{{ url_for('product.display_products_page', page=products.prev_num, animal=animal) }}">Previous</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled"><span class="page-link">Previous</span></li>
+      {% endif %}
+
+      {% for page_num in products.iter_pages(left_edge=1, right_edge=1, left_current=2, right_current=2) %}
+        {% if page_num %}
+          {% if page_num == products.page %}
+            <li class="page-item active"><span class="page-link">{{ page_num }}</span></li>
+          {% else %}
+            <li class="page-item">
+              <a class="page-link" href="{{ url_for('product.display_products_page', page=page_num, animal=animal) }}">{{ page_num }}</a>
+            </li>
+          {% endif %}
+        {% else %}
+          <li class="page-item disabled"><span class="page-link">…</span></li>
+        {% endif %}
+      {% endfor %}
+
+      {% if products.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="{{ url_for('product.display_products_page', page=products.next_num, animal=animal) }}">Next</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled"><span class="page-link">Next</span></li>
+      {% endif %}
+    </ul>
+  </nav>
 {% else %}
-    <p>No products available.</p>
+  <p class="text-center my-5">No products available.</p>
 {% endif %}
 {% endblock %}
-

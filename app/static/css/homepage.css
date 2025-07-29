@@ -32,11 +32,11 @@
 }
 
 .carousel-control-prev {
-  left: -60px;
+  left: -20px;
 }
 
 .carousel-control-next {
-  right: -60px;
+  right: -20px;
 }
 
 .carousel-control-prev-icon,
@@ -120,7 +120,7 @@
 
 /* Paragraphs */
 p {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .scroll-container {
@@ -128,7 +128,7 @@ p {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 1rem;
-  padding-right: 2rem; /* 防止最后卡片被遮挡 */
+  padding-right: 2rem;
 }
 
 .product-card {

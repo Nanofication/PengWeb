@@ -3,8 +3,8 @@
 
 {% block content %}
 <!-- Carousel Section -->
-<div class="container my-5">
-  <div id="carouselExample" class="carousel slide mb-5" data-bs-ride="carousel">
+<div class="container my-2">
+  <div id="carouselExample" class="carousel slide mb-2" data-bs-ride="carousel">
     <div class="carousel-inner">
       {% for image in carousel_images %}
         <div class="carousel-item {% if loop.first %}active{% endif %}">
@@ -27,7 +27,7 @@
 </div>
 
 <!-- Dog/Cat/Turtle Buttons -->
-<div class="container my-5">
+<div class="container my-2">
   <div class="row text-center">
     <div class="col-sm-6 col-md-4">
       <a href="/products?animal=dog">
@@ -52,11 +52,11 @@
 
 <!-- Quick Shipping -->
 <div class="bg-brown py-2 w-100">
-  <h2 class="section-title text-center text-white m-0 text-uppercase">Quick Shipping at Hot Items</h2>
+  <h2 class="section-title text-center text-white m-0">Quick Shipping at Hot Items</h2>
 </div>
 
 <!-- Featured Items -->
-<div class="container mt-5 p-4 rounded bg-baby-blue position-relative">
+<div class="container mt-2 p-4 rounded bg-baby-blue position-relative">
   <div class="overflow-hidden">
     <div id="hot-items-wrapper" class="d-flex transition-wrapper">
       {% for product in featured_items %}
@@ -64,7 +64,7 @@
         <div class="card h-100">
           <img src="{{ url_for('static', filename=product.image_url) }}" class="card-img-top" alt="{{ product.name }}">
           <div class="card-body">
-            <h5 class="card-title text-uppercase">{{ product.name }}</h5>
+            <h5 class="card-title">{{ product.name }}</h5>
           </div>
         </div>
       </div>
@@ -81,36 +81,37 @@
   </button>
 </div>
 
-<!-- Our Story Title Section -->
-<div class="bg-light py-2 w-100 my-5">
+<!-- Our Story Title Section
+<div class="bg-light py-2 w-100 my-2">
   <h2 class="section-title text-center m-0">Our Story</h2>
-</div>
+</div>-->
 
 <!-- Our Story Section -->
-<div class="container my-5">
-  <div class="row align-items-center py-4">
+<div class="container my-2">
+  <div class="row align-items-center">
     <!-- Left: Picture -->
     <div class="col-md-6 text-center">
-      <img src="{{ url_for('static', filename='images/dog3.jpg') }}" alt="Our Story" class="img-fluid rounded shadow" style="max-width: 80%;">
+      <img src="{{ url_for('static', filename='images/ourvision.jpg') }}" alt="Our Story" class="img-fluid rounded shadow" style="max-width: 80%;">
     </div>
 
     <!-- Right: Text -->
     <div class="col-md-6">
-      <div class="card shadow-sm p-4">
-        <h2 class="section-title text-center">Meet Our Pup! 🐾</h2>
+      <div class="card shadow-sm p-3">
+        <h2 class="section-title text-center">Our Vision</h2>
         <p>
-          Say hello to our adorable German Shepherd, born on <strong>February 15, 2022</strong>! Though she’s a German Shepherd, she’s petite for her breed—just <strong>68 pounds of pure joy</strong>.
+          At <strong>PengYu Global</strong>, we envision a world where every pet leads a happy, healthy, and enriched life, supported by our thoughtfully curated selection of products and our unwavering commitment to exceptional customer service.
         </p>
+        <ul>
+          <li>Provide a seamless online shopping experience that delights pet owners and meets the unique needs of every pet.</li>
+          <li>Continuously innovate our product line to address emerging pet care trends and promote responsible pet ownership.</li>
+          <li>Foster a community of passionate pet lovers who share knowledge, experiences, and support for the well-being of all animals.</li>
+          <li>Lead the industry in sustainable and eco-friendly pet product solutions, minimizing our environmental pawprint.</li>
+          <li>Contribute positively to animal welfare through partnerships with shelters, rescue organizations, and conservation efforts.</li>
+        </ul>
         <p>
-          Don’t let her size fool you—she’s bursting with energy, full of curiosity, and always ready for playtime. 🎾
+          By realizing this vision, we aim to create a better world for pets and the people who love them—<strong>one product at a time</strong>.
         </p>
-        <p>
-          Her favorite thing in the world? <strong>Chasing her ball</strong>! Whether it's in the backyard or at the park, she’ll happily sprint after it again and again.
-        </p>
-        <p>
-          With a wagging tail and a heart of gold, she brings smiles wherever she goes. 🐶💛
-        </p>
-    </div>
+      </div>
     </div>
   </div>
 </div>
