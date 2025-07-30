@@ -37,19 +37,6 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #89CFF0 !important;
 }
 
-/* Enable dropdown on hover */
-.nav-item.dropdown:hover .dropdown-menu {
-  display: block;
-  margin-top: 0; /* remove any default offset */
-}
-
-/* Style the dropdown for a more modern look */
-.dropdown-menu {
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: none;
-}
-
 /* Footer */
 footer .col-md-3 ul {
   line-height: 1.8;
