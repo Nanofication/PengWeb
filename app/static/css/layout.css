@@ -21,7 +21,21 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
+/* Company Header */
+.text-center.p-3 {
+  padding: 1rem 1rem;  /* Reduce from Bootstrap default */
+  margin-bottom: 0;
+}
 
+.text-center.p-3 h1 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.text-center.p-3 p {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
 /* Navbar */
 .navbar .nav-link,
 .navbar .navbar-brand {

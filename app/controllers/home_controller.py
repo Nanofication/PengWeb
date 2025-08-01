@@ -9,8 +9,8 @@ def render_home():
 
     #Add nes pics for the slide in the home page
     carousel_images = [
+        'images/slide4.jpg',
         'images/slide.jpg',
-        'images/slide1.jpg',
     ]
 
     return render_template('index.html',
