@@ -1,8 +1,8 @@
 from run import app
 from app import db
 from app.models.product import Product
-'''
 
+'''
 with app.app_context():
     db.drop_all()
     db.create_all()
@@ -20,7 +20,7 @@ with app.app_context():
 '''
 
 with app.app_context():
-    '''
+
     #add amount for "top items" filter 
     products = Product.query.all()
     for p in products:
@@ -39,7 +39,7 @@ with app.app_context():
     db.session.add(example)
     db.session.commit()
     print("New product 'example' added.")
-    
+    '''
     #delete data
     last_product = Product.query.order_by(Product.id.desc()).first()
     if last_product:
@@ -49,7 +49,7 @@ with app.app_context():
         print("Last product deleted.")
     else:
         print("No products found.")
-    '''
+    
 
 
     #add img for new data
@@ -61,4 +61,5 @@ with app.app_context():
 
     db.session.commit()
     print("Updated example1 and example2 with image URLs.")
+    '''
 
