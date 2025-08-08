@@ -11,7 +11,8 @@ with app.app_context():
     p2 = Product(name="Dog Poop Bag Multicolor", category="dog", image_url="images/dog_poop_bag_4.jpeg")
     p3 = Product(name="Dog Poop Bag Dispenser", category="dog", image_url="images/dog_poop_bag_dispenser_1.jpeg")
 
-    db.session.add_all([p1, p2, p3])
+    db.session.add_all([p1,p2,p3])
+
     db.session.commit()
 
     print("Database reset and seeded.")

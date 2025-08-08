@@ -3,9 +3,6 @@ from app import db
 from app.models.email import UserInfo
 
 with app.app_context():
-    db.drop_all()
-    db.create_all()
-
     # Add fresh data
     userInfo = UserInfo(name="", email="")
 
