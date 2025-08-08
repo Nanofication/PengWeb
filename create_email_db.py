@@ -1,17 +1,15 @@
 from run import app
 from app import db
-from app.models.product import Product
+from app.models.email import UserInfo
 
 with app.app_context():
     db.drop_all()
     db.create_all()
 
     # Add fresh data
-    p1 = Product(name="Dog Poop Bag", category="dog", image_url="images/dog_poop_bag_1.jpeg")
-    p2 = Product(name="Dog Poop Bag Multicolor", category="dog", image_url="images/dog_poop_bag_4.jpeg")
-    p3 = Product(name="Dog Poop Bag Dispenser", category="dog", image_url="images/dog_poop_bag_dispenser_1.jpeg")
+    userInfo = UserInfo(name="", email="")
 
-    db.session.add_all([p1, p2, p3])
+    db.session.add(userInfo)
     db.session.commit()
 
     print("Database reset and seeded.")

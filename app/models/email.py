@@ -11,8 +11,11 @@ class UserInfo(db.Model):
 def get_all_users():
     return UserInfo.query.all()
 
-def save_user():
-    userInfo = UserInfo(name="", email="")
+def save_user(name, email):
+    userInfo = UserInfo(name=name, email=email)
 
     db.session.add(userInfo)
     db.session.commit()
+
+def find_email(email):
+    return UserInfo.query.filter_by(email=email).first()
