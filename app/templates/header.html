@@ -33,26 +33,50 @@
   </div>
 
   <!-- Navbar -->
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-brown bg-warning-subtle">
-  <div class="container">
-    <a class="navbar-brand" href="/">Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav class="navbar navbar-expand-lg bg-brown bg-warning-subtle">
+    <div class="container">
+      <a class="navbar-brand" href="/">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        </ul>
 
-        <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        <!-- Login/Logout -->
+        <ul class="navbar-nav ms-auto">
+          {% if session.get('role') %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('auth.logout') }}">
+                Logout{% if session.get('role') == 'admin' %} (Admin){% endif %}
+              </a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('auth.login', next=request.full_path) }}">Login</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
 
-      </ul>
+    </div>
+  </nav>
+
+  <!-- Toast container -->
+  <div class="position-fixed top-0 start-50 translate-middle-x p-3" style="z-index: 2000">
+    <div id="flash-toast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div id="flash-toast-body" class="toast-body">
+          <!-- message goes here -->
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
     </div>
   </div>
-</nav>
-
 
   <!-- Page-specific content -->
   {% block content %}{% endblock %}
